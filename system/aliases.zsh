@@ -48,8 +48,25 @@ alias h='history -30 -1'
 alias hg='history 1 -1 | grep '
 
 # process list helpers
+alias pg='ps -Aef | head -1 && ps -Aef | grep'
 alias pg='ps -A | grep '
 alias psa='ps -A'
+alias ka='killall'
+alias k='kill -9'
+alias knode='pkill -9 -f '\''node --expose-gc'\'
+alias fk='fkill'
+
+# copies current directory to clipboard
+alias curdir="pwd | tr -d '\n' | pbcopy"
+
+# starts up a webserver at the current directory
+alias httpserver="python -m SimpleHTTPServer 9090"
+
+# open current directory in sourcetree
+alias st='open -a "/Applications/SourceTree.app" `pwd`'
+alias stf='open -a "/Applications/SourceTree.app" `pwd` && fg'
+alias sf='open -a "/Applications/Fork.app" `pwd`'
+alias sff='open -a "/Applications/Fork.app" `pwd` && fg'
 
 #Edit
 alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
@@ -61,7 +78,6 @@ alias tu='git --git-dir=/Users/scarpenter/.dotfiles/.git/ --work-tree=/Users/sca
 
 #Shorter Git commands
 alias gist='git status'
-alias st='open -a SourceTree `pwd`'
 alias assume='git update-index --assume-unchanged'
 alias unassume='git update-index --no-assume-unchanged'
 
@@ -71,6 +87,17 @@ alias git='hub'
 alias mci='mvn clean install -DskipTests -Pblc-development'
 alias mcit='mvn clean install -Pblc-development'
 alias mi='mvn install -DskipTests -Pblc-development'
+
+# shortcuts for npm run
+alias nr="npm run"
+alias nrt="npm run -s test"
+alias nrl="npm run -s lint"
+alias nrs="npm run -s start"
+alias yr="yarn run"
+alias ys="yarn run start"
+alias yl="yarn run lint"
+alias yt="yarn run test"
+alias ytw="yarn test:watch"
 
 #blc docs
 alias localdocs='gollum-site serve --watch --working --port 8050'
@@ -222,6 +249,8 @@ alias usejava8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 
 #dev aliases
 alias refresh='source ~/.zshrc'
+alias ref='source ~/.zshrc'
+
 alias redis='redis-server /usr/local/etc/redis.conf'
 alias hu='edit /private/etc/hosts'
 alias whatismyip='curl http://dev70.iconfitness.com/CWSTest/ipAddress.jsp'
