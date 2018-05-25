@@ -1,0 +1,85 @@
+# Mac OS X uses path_helper and /etc/paths.d to preload PATH, clear it out first
+if [ -x /usr/libexec/path_helper ]; then
+    PATH=''
+    eval `/usr/libexec/path_helper -s`
+fi
+
+# shortcut to this dotfiles path is $ZSH
+export ZSH=$HOME/.dotfiles
+
+# enable support for colors
+autoload colors && colors
+
+# source every .zsh file in this rep
+for config_file ($ZSH/**/*.zsh) source $config_file
+
+# load functions
+fpath=($ZSH/zsh/functions $fpath)
+autoload -U $ZSH/zsh/functions/*(:t)
+
+zle -N newtab
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -Uz compinit
+###compinit -u
+compinit
+
+# load every completion after autocomplete loads
+for config_file ($ZSH/**/completion.sh) source $config_file
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+# autojump
+###if [ -f `brew --prefix`/etc/autojump.sh ]; then
+###  . `brew --prefix`/etc/autojump.sh
+###fi
+
+# GRC colorizes nifty unix tools all over the place
+if $(grc &>/dev/null)
+then
+  source `brew --prefix`/etc/grc.bashrc
+fi
+
+#LET THERE BE KEYBINDINGS
+# key bindings
+###bindkey "\e[1~" beginning-of-line
+###bindkey "\e[4~" end-of-line
+#bindkey "\e[5~" history-beginning-search-backward
+#bindkey "\e[6~" history-beginning-search-forward
+###bindkey "\e[3~" delete-char
+###bindkey "\e[2~" quoted-insert
+###bindkey "\e[5C" forward-word
+###bindkey "\e[5D" backward-word
+###bindkey "\e[1;5C" forward-word
+###bindkey "\e[1;5D" backward-word
+
+###bindkey "\e[5~" history-search-backward
+###bindkey "\e[6~" history-search-forward
+
+##### removed rbenv 12-16-16 #####if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+zstyle ':completion:*:*:git:*' script ~/.git-completion.zsh
+source ~/.git-flow-completion.zsh
+
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format '%B%d%b'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*' group-name ''
+
+
+
+. /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
+
+function precmd () {
+	z --add "$(pwd -P)"
+}
+
+autoload run-help
+
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+plugins=(git cloudapp node npm bower brew osx extract z)
