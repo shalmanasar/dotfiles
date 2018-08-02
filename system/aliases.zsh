@@ -141,14 +141,14 @@ alias unloadmysql='brew services stop mysql'
 
 alias mysqlbroadleaf='mysqladmin -v -f -uroot -pbroadleaf drop broadleaf; mysqladmin -v -uroot -pbroadleaf create broadleaf'
 
-alias loadclean='cd ~/dev-loader; ./clean-db.sh broadleaf'; cd -
+alias loadclean='cd ~/commerce/dev-loader; ./clean-db.sh broadleaf'; cd -
 
 alias startdrive='drive init ~/Google\ Drive\ for\ Work;cd ~/Google\ Drive\ for\ Work'
 alias stopdrive='drive deinit [--no-prompt]'
 
 alias cdcommerce='cd /Users/scarpenter/commerce/site/src/main/webapp/WEB-INF'
 
-alias cdcheat='cd /Library/Python/2.7/site-packages/cheat/cheatsheets'
+alias cdcheat='cd /usr/local/Cellar/cheat/2.2.3/libexec/lib/python2.7/site-packages/cheat/cheatsheets'
 
 alias sublhist='cd ~; subl .zsh_history'
 
@@ -236,9 +236,6 @@ bruha () {
 	npm install npm@latest -g
 	echo 'update ruby gems'
 	sudo gem update
-	echo 'update dbeaver'
-#	brew cask reinstall dbeaver-enterprise
-	brew cask reinstall dbeaver-community
 	echo 'npm outdated --global'
 	npm outdated --global
 }
@@ -338,6 +335,7 @@ alias cwssrv02='ssh scarpenter@cwssrv02'
 alias owssrv01='ssh scarpenter@owssrv01'
 alias owssrv02='ssh scarpenter@owssrv02'
 alias webordersrv='ssh scarpenter@webordersrv'
+alias iconutil='ssh scarpenter@iconutil'
 
 # To copy my ssh key to the server:
 # cat /Users/scarpenter/.ssh/id_rsa.pub | ssh scarpenter@iconapps01 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
@@ -417,6 +415,7 @@ status () {
 }
 
 alias jn='jupyter notebook &'
+#http://localhost:8888/?token=2f746a26e338031c88405a019277b19b277f1979f03842a1
 
 showcolors () {
 	for code ({000..255}) { print -nP -- "$code: %F{$code}%K{$code}Test%k%f " ; (( code % 8 && code < 255 )) || printf '\n'}
@@ -495,4 +494,6 @@ what () {
 	curl cheat.sh/$1
 }
 
+alias jshell='/Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/bin/jshell'
 
+alias fixxcode='sudo xcode-select -s /Applications/Xcode.app/Contents/Developer'

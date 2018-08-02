@@ -108,6 +108,6 @@ export CARINA_APIKEY=58ea0900cc8b4c38b16978a4cc263da6
 
 #Java Version
 #export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_102, x86_64`
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_172, x86_64`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_181, x86_64`
 
 export SLACK_DEVELOPER_MENU=true
