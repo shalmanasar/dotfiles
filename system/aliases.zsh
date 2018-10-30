@@ -119,25 +119,41 @@ alias startsite='unset GEM_PATH; cd ~/commerce/site; mvn eclipse:eclipse; mvn cl
 alias startadmin='unset GEM_PATH; cd ~/commerce/admin; mvn eclipse:eclipse; mvn clean install -U; ant tomcat-jrebel'
 ####### alias site='unset GEM_PATH; cd ~/commerce/site; ant tomcat-jrebel'
 ####### alias admin='unset GEM_PATH; cd ~/commerce/admin; ant tomcat-jrebel'
-alias site='unset GEM_PATH; cd ~/commerce/site; ant tomcat-jrebel'
-alias admin='unset GEM_PATH; cd ~/commerce/admin; ant tomcat-jrebel'
+## alias site='unset GEM_PATH; cd ~/commerce/site; ant tomcat-jrebel'
+## alias admin='unset GEM_PATH; cd ~/commerce/admin; ant tomcat-jrebel'
 
 alias gemsite='cd ~/commerce/site; ant tomcat-jrebel'
 alias gemadmin='cd ~/commerce/admin; ant tomcat-jrebel'
 
+admin () {
+	if ! pgrep -f solr
+	then
+		solr up
+	fi
+	unset GEM_PATH
+	cd ~/commerce/admin
+	ant tomcat-jrebel
+}
 
-
-
+site () {
+	if ! pgrep -f solr
+	then
+		solr up
+	fi
+	unset GEM_PATH
+	cd ~/commerce/site
+	ant tomcat-jrebel
+}
 
 alias fixmvn='unset GEM_PATH; cd ~/commerce; mvn clean install -U'
 
 alias yardview='unset GEM_PATH; cd ~/Documents/projects/yardview; ant tomcat-jrebel'
 
-alias startmysql='mysql.server start'
-alias stopmysql='mysql.server stop'
+#alias startmysql='mysql.server start'
+#alias stopmysql='mysql.server stop'
 
-alias loadmysql='brew services start mysql'
-alias unloadmysql='brew services stop mysql'
+alias startmysql='brew services start mysql@5.7'
+alias stopmysql='brew services stop mysql@5.7'
 
 alias mysqlbroadleaf='mysqladmin -v -f -uroot -pbroadleaf drop broadleaf; mysqladmin -v -uroot -pbroadleaf create broadleaf'
 
@@ -222,7 +238,6 @@ bru () {
 	brew cask upgrade
 	echo 'brew cleanup'
 	brew cleanup
-	brew cask cleanup
 	echo 'brew doctor'
 	brew doctor
 	brew cask doctor
@@ -304,7 +319,8 @@ alias start-server='Python -m SimpleHTTPServer '
 
 
 # copies public ssh key to clipboard
-alias pubkey="more ~/.ssh/id_dsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias pubgithubkey="more ~/.ssh/github_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # SSH aliases
 alias qablc21='ssh scarpenter@qablc21'
@@ -336,6 +352,7 @@ alias owssrv01='ssh scarpenter@owssrv01'
 alias owssrv02='ssh scarpenter@owssrv02'
 alias webordersrv='ssh scarpenter@webordersrv'
 alias iconutil='ssh scarpenter@iconutil'
+alias devappsext='ssh scarpenter@devappsext'
 
 # To copy my ssh key to the server:
 # cat /Users/scarpenter/.ssh/id_rsa.pub | ssh scarpenter@iconapps01 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"

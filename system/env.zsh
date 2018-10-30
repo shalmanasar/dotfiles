@@ -40,7 +40,7 @@ export ANACONDA_PATH=~/anaconda3/bin
 
 export MANPATH="/opt/local/share/main:/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-export PATH="$HOME/usr/local/bin/compass:$HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/opt/coreutils/libexec/gnubin:$ZSH/bin:$ZSH/bin/private:/usr/local/bin:/usr/local/sbin:$GOPATH:$MYSQL_PATH/bin:$PATH:/Users/scarpenter/android-sdks/platform-tools:$ANACONDA_PATH:$MVN_HOME/bin:"
+export PATH="$HOME/usr/local/bin/compass:$HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/opt/coreutils/libexec/gnubin:$ZSH/bin:$ZSH/bin/private:/usr/local/bin:/usr/local/sbin:$GOPATH:$MYSQL_PATH/bin:$PATH:/Users/scarpenter/android-sdks/platform-tools:$ANACONDA_PATH:$MVN_HOME/bin:/usr/local/Cellar/mysql@5.7/5.7.23/support-files/:/usr/local/Cellar/mysql@5.7/5.7.23/bin/:"
 
 export CHEATCOLORS=true
 
@@ -108,6 +108,6 @@ export CARINA_APIKEY=58ea0900cc8b4c38b16978a4cc263da6
 
 #Java Version
 #export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_102, x86_64`
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_181, x86_64`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_192, x86_64`
 
 export SLACK_DEVELOPER_MENU=true

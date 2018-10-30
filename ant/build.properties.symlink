@@ -1,5 +1,5 @@
 spring.instrument.path=/Users/scarpenter/commerce/lib/spring-instrument-4.3.10.RELEASE.jar
-maven.home=/usr/local/Cellar/maven/3.5.3/libexec
+maven.home=/usr/local/Cellar/maven/3.5.4/libexec
 
 # Absolute path to the JRebel dylib, this assumes that you have Jrebel 6+ (6.0.2 is the latest)
 jrebel.path=/Users/scarpenter/jrebel/lib/libjrebel64.dylib
