@@ -353,6 +353,7 @@ alias owssrv02='ssh scarpenter@owssrv02'
 alias webordersrv='ssh scarpenter@webordersrv'
 alias iconutil='ssh scarpenter@iconutil'
 alias devappsext='ssh scarpenter@devappsext'
+alias partsvm='ssh scarpenter@partsvm'
 
 # To copy my ssh key to the server:
 # cat /Users/scarpenter/.ssh/id_rsa.pub | ssh scarpenter@iconapps01 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
