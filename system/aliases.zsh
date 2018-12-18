@@ -327,6 +327,8 @@ alias qablc21='ssh scarpenter@qablc21'
 alias prdblc21='ssh scarpenter@prdblc21'
 alias prdblc22='ssh scarpenter@prdblc22'
 alias prdblc23='ssh scarpenter@prdblc23'
+alias prdblc12='ssh scarpenter@prdblc12'
+alias prdblc11='ssh scarpenter@prdblc11'
 alias qaadmin='ssh scarpenter@blcadminqa'
 alias blcadmin='ssh scarpenter@blcadmin'
 alias blcadminqa='ssh scarpenter@blcadminqa'
@@ -354,6 +356,12 @@ alias webordersrv='ssh scarpenter@webordersrv'
 alias iconutil='ssh scarpenter@iconutil'
 alias devappsext='ssh scarpenter@devappsext'
 alias partsvm='ssh scarpenter@partsvm'
+alias prdblcadmin1='ssh scarpenter@prdblcadmin1'
+alias prdblcadmin2='ssh scarpenter@prdblcadmin2'
+
+
+
+
 
 # To copy my ssh key to the server:
 # cat /Users/scarpenter/.ssh/id_rsa.pub | ssh scarpenter@iconapps01 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
