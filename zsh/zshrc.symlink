@@ -60,9 +60,15 @@ fi
 ###bindkey "\e[5~" history-search-backward
 ###bindkey "\e[6~" history-search-forward
 
-##### removed rbenv 12-16-16 #####if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+##### removed rbenv 12-16-16 ##### added back after installation of Catalina 6-29-19:
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-zstyle ':completion:*:*:git:*' script ~/.git-completion.zsh
+
+
+
+### zstyle ':completion:*:*:git:*' script ~/.git-completion.zsh
+### source ~/.git-completion.zsh
+zstyle ':completion:*:*:git:*' script ~/.git-flow-completion.zsh
 source ~/.git-flow-completion.zsh
 
 zstyle ':completion:*' verbose yes
@@ -88,4 +94,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$PATH:$HOME/.rvm/bin"
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.iterm2_shell_integration.zsh
+
+ssh-add ~/.ssh/nodeshalmanasarcom.pem 
 

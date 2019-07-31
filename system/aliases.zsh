@@ -107,6 +107,11 @@ alias starttomcat='sh /usr/local/apache-tomcat-7.0.63/bin/startup.sh'
 alias stoptomcat='sh /usr/local/apache-tomcat-7.0.63/bin/shutdown.sh'
 alias logtomcat='tail -f /usr/local/apache-tomcat-7.0.63/logs/catalina.out'
 
+alias apachelog='tail -f /usr/local/var/log/httpd/error_log'
+alias startapache='sudo apachectl start'
+alias stopapache='sudo apachectl stop'
+alias restartapache='sudo apachectl -k restart'
+
 alias redis-start=redis-server /usr/local/etc/redis.conf
 
 
@@ -284,31 +289,14 @@ alias paste='pbpaste'
 # Move files and folders to the trash
 alias rm='trash'
 
-#s3 Management
-alias s3prodhere='aws s3 sync s3://iconblcproductionclean ~/iconblcproductionclean'
-alias s3hereprod='aws s3 sync ~/iconblcproductionclean s3://iconblcproductionclean'
-alias s3prodstage='aws s3 sync s3://iconblcproductionclean s3://iconblcstageclean'
-alias s3proddev='aws s3 sync s3://iconblcproductionclean s3://iconblcdevclean'
-alias s3proddevbroken='aws s3 sync s3://iconblcproductionclean s3://iconblcdev'
-
-s3cp4 () {
-	if [ -n "$1" ]
-	then
-		cp "$1" ../site--4
-	else
-		echo "Include image(s) to copy"
-	fi
-}
-s3cp15 () {
-	if [ -n "$1" ]
-	then
-		cp "$1" ../site--15
-	else
-		echo "Include image(s) to copy"
-	fi
-}
-#/s3 Management
-
+# t () {
+# 	if [ ! -z $1 ]
+# 		then 
+# 			tree -L $1
+# 		else 
+# 			tree -L 1
+# 	fi
+# }
 
 alias process='ps -ef | grep'
 
@@ -322,46 +310,7 @@ alias start-server='Python -m SimpleHTTPServer '
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias pubgithubkey="more ~/.ssh/github_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
-# SSH aliases
-alias bamboo='ssh scarpenter@bamboo'
-alias blcadmin2='ssh scarpenter@blcadmin2'
-alias blcadmin='ssh scarpenter@blcadmin'
-alias blcadmindev='ssh scarpenter@blcadmindev'
-alias blcadminqa='ssh scarpenter@blcadminqa'
-alias cwssrv01='ssh scarpenter@cwssrv01'
-alias cwssrv02='ssh scarpenter@cwssrv02'
-alias devappsext='ssh scarpenter@devappsext'
-alias devblc01='ssh scarpenter@devblc01'
-alias docker2='ssh scarpenter@docker02'
-alias dockerdev='ssh scarpenter@dockerdev'
-alias iconapps01='ssh scarpenter@iconapps01'
-alias iconapps02='ssh scarpenter@iconapps02'
-alias iconutil='ssh scarpenter@iconutil'
-alias mongo1='ssh scarpenter@mongo1'
-alias mongo2='ssh scarpenter@mongo2'
-alias owssrv01='ssh scarpenter@owssrv01'
-alias owssrv02='ssh scarpenter@owssrv02'
-alias partsvm='ssh scarpenter@partsvm'
-alias prdblc11='ssh scarpenter@prdblc11'
-alias prdblc12='ssh scarpenter@prdblc12'
-alias prdblc21='ssh scarpenter@prdblc21'
-alias prdblc22='ssh scarpenter@prdblc22'
-alias prdblc23='ssh scarpenter@prdblc23'
-alias prdblcadmin1='ssh scarpenter@prdblcadmin1'
-alias prdblcadmin2='ssh scarpenter@prdblcadmin2'
-alias prddb2='ssh scarpenter@prddb2'
-alias prdmysql1='ssh scarpenter@prdmysql1'
-alias prdmysql2='ssh scarpenter@prdmysql2'
-alias qaadmin='ssh scarpenter@blcadminqa'
-alias qablc21='ssh scarpenter@qablc21'
-alias solr1='ssh scarpenter@prdsolrv31'
-alias solr2='ssh scarpenter@prdsolrv32'
-alias solr3='ssh scarpenter@prdsolrv33'
-alias webordersrv='ssh scarpenter@webordersrv'
-
-
-
-
+alias shalmanasar='ssh bitnami@node.shalmanasar.com'
 
 # To copy my ssh key to the server:
 # cat /Users/scarpenter/.ssh/id_rsa.pub | ssh scarpenter@iconapps01 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
@@ -523,3 +472,22 @@ what () {
 alias jshell='/Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/bin/jshell'
 
 alias fixxcode='sudo xcode-select -s /Applications/Xcode.app/Contents/Developer'
+
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
+alias nod='ssh -i "~/.ssh/nodeshalmanasarcom.pem" bitnami@node.shalmanasar.com'
+
+# mkdir, cd into it
+mkcd () {
+	mkdir -p "$*"
+	cd "$*"
+}
+
+alias cdreact='cd ~/Documents/projects-personal/react'
+
+alias installsass='npm install node-sass;npm rebuild node-sass'
+
+alias insecure='sudo spctl --master-disable'
+
+
