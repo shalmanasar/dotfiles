@@ -67,9 +67,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 
 ### zstyle ':completion:*:*:git:*' script ~/.git-completion.zsh
-### source ~/.git-completion.zsh
-zstyle ':completion:*:*:git:*' script ~/.git-flow-completion.zsh
-source ~/.git-flow-completion.zsh
+### source ~/.zsh/git-completion.zsh
+### zstyle ':completion:*:*:git:*' script ~/.git-flow-completion.zsh
+### source ~/.git-flow-completion.zsh
 
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%B%d%b'
@@ -98,3 +98,7 @@ source ~/.iterm2_shell_integration.zsh
 
 ssh-add ~/.ssh/nodeshalmanasarcom.pem 
 
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship
