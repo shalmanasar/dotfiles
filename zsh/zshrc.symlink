@@ -100,5 +100,11 @@ ssh-add ~/.ssh/nodeshalmanasarcom.pem
 
 
   # Set Spaceship ZSH as a prompt
+  # https://github.com/denysdovhan/spaceship-prompt
+  SPACESHIP_DIR_TRUNC_REPO=false
+  SPACESHIP_DIR_TRUNC=0
   autoload -U promptinit; promptinit
   prompt spaceship
+
+# opam configuration
+test -r /Users/scarpenter/.opam/opam-init/init.zsh && . /Users/scarpenter/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

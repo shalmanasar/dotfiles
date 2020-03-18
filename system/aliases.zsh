@@ -169,7 +169,6 @@ alias stopdrive='drive deinit [--no-prompt]'
 
 alias cdcommerce='cd /Users/scarpenter/commerce/site/src/main/webapp/WEB-INF'
 
-alias cdcheat='cd /usr/local/Cellar/cheat/2.2.3/libexec/lib/python2.7/site-packages/cheat/cheatsheets'
 
 alias sublhist='cd ~; subl .zsh_history'
 
@@ -310,7 +309,7 @@ alias start-server='Python -m SimpleHTTPServer '
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias pubgithubkey="more ~/.ssh/github_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
-alias shalmanasar='ssh bitnami@node.shalmanasar.com'
+alias shalmanasar='ssh bitnami@www.shalmanasar.com'
 
 # To copy my ssh key to the server:
 # cat /Users/scarpenter/.ssh/id_rsa.pub | ssh scarpenter@iconapps01 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
@@ -464,19 +463,21 @@ alias cleaneclipse='open /Applications/Eclipse.app --args -clean'
 
 alias stopdsstore='defaults write com.apple.desktopservices DSDontWriteNetworkStores true'
 
-what () {
-	echo 'curl cheat.sh/<command>'
-	curl cheat.sh/$1
-}
-
 alias jshell='/Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/bin/jshell'
 
-alias fixxcode='sudo xcode-select -s /Applications/Xcode.app/Contents/Developer'
+alias fixxcode='sudo xcode-select -s /Applications/Xcode-beta.app/Contents/Developer'
+alias switchxcode='sudo xcode-select -switch /Applications/Xcode-beta.app'
 
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
-alias nod='ssh -i "~/.ssh/nodeshalmanasarcom.pem" bitnami@node.shalmanasar.com'
+alias nod='ssh -i "~/.ssh/nodeshalmanasarcom.pem" bitnami@shalmanasar.com'
+
+
+### Docker shtuff
+alias runjenkins='docker run --rm -u root -p 8080:8080 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v "$HOME":/home jenkinsci/blueocean'
+alias cdjenkins='cd /var/jenkins_home'
+
 
 # mkdir, cd into it
 mkcd () {
@@ -485,9 +486,21 @@ mkcd () {
 }
 
 alias cdreact='cd ~/Documents/projects-personal/react'
+alias cdprojects='cd ~/Documents/projects-personal'
 
 alias installsass='npm install node-sass;npm rebuild node-sass'
 
 alias insecure='sudo spctl --master-disable'
 
+alias killaudio='sudo killall coreaudiod'
 
+alias cdhttpd='cd /usr/local/opt/httpd'
+
+alias installlodash='npm i --save lodash; npm i --save-dev lodash-webpack-plugin babel-core babel-loader babel-plugin-lodash babel-preset-env webpack'
+
+alias cdcheat='cd /usr/local/Cellar/cheat/2.2.3/libexec/lib/python2.7/site-packages/cheat/cheatsheets'
+
+what () {
+	echo 'curl cheat.sh/<command>'
+	curl cheat.sh/$1
+}
