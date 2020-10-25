@@ -238,11 +238,11 @@ bru () {
 	brew update
 	echo 'brew upgrade'
 	brew upgrade
-	echo 'brew cask upgrade'
+	echo 'brew upgrade --cask'
 	brew cask upgrade
 	echo 'brew cleanup'
 	brew cleanup
-	echo 'brew doctor'
+	echo 'brew doctor --verbose'
 	brew doctor
 	brew cask doctor
 	echo 'update tldr'
@@ -504,3 +504,5 @@ what () {
 	echo 'curl cheat.sh/<command>'
 	curl cheat.sh/$1
 }
+
+alias fixopenssl='brew switch openssl 1.0.2t'
